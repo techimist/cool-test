@@ -1,9 +1,12 @@
 <template>
   <header
-    class="bg-gray-900 relative flex justify-between items-center h-17 lg:h-20 left-0 right-0 text-white"
+    class="bg-gray-900 relative flex justify-between items-center h-17 lg:h-20 text-white"
   >
     <app-logo class="hidden lg:block" />
-    <div class="lg:hidden">Close</div>
+    <div class="lg:hidden">
+      <burger-icon />
+      <MobileNav />
+    </div>
 
     <div class="hidden lg:block">middle container</div>
     <app-logo class="lg:hidden block" />
@@ -17,12 +20,16 @@
 <script>
 import AppLogo from "../app-logo";
 import CartIcon from "../icons/cart-icon";
+import BurgerIcon from "../icons/burger-icon";
+import MobileNav from "./mobile-nav";
 
 export default {
   name: "AppHeader",
   components: {
     AppLogo,
-    CartIcon
+    CartIcon,
+    BurgerIcon,
+    MobileNav,
   }
 };
 </script>
