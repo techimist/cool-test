@@ -1,4 +1,4 @@
-const ProductLinksList = [
+const PRODUCT_LINKS_LIST = [
   {
     title: "Maxon One",
     link: "#"
@@ -17,7 +17,7 @@ const ProductLinksList = [
   }
 ];
 
-const NewsLinksList = [
+const NEWS_LINKS_LIST = [
   {
     title: "News Room",
     link: "#"
@@ -28,7 +28,7 @@ const NewsLinksList = [
   }
 ];
 
-const LearnLinksList = [
+const LEARN_LINKS_LIST = [
   {
     title: "Training Partners",
     link: "#"
@@ -39,51 +39,54 @@ const LearnLinksList = [
   }
 ];
 
-const MobileNavConfig = [
+const MOBILE_NAV_CONFIG = [
   {
     title: "Search",
-    icon: "Search",
-    component: "MobileSearch"
+    iconComponent: "SearchIcon",
+    component: "MobileNavSearch",
+    showInner: true,
   },
   {
     title: "Products",
-    icon: "Chevron",
+    iconComponent: "ChevronIcon",
     component: "MobileNavInnerList",
-    componentProps: { linkList: ProductLinksList }
+    showInner: true,
+    componentProps: { linkList: PRODUCT_LINKS_LIST }
   },
   {
     title: "News",
-    icon: "Chevron",
+    iconComponent: "ChevronIcon",
     component: "MobileNavInnerList",
-    componentProps: { linkList: NewsLinksList }
+    showInner: true,
+    componentProps: { linkList: NEWS_LINKS_LIST }
   },
   {
     title: "Learn",
-    icon: "Chevron",
+    iconComponent: "ChevronIcon",
     component: "MobileNavInnerList",
-    componentProps: { linkList: LearnLinksList }
+    showInner: true,
+    componentProps: { linkList: LEARN_LINKS_LIST }
   },
   {
     title: "Try",
     link: "#",
-    component: "Link"
   },
   {
     title: "Buy",
     link: "#",
-    component: "Link"
   },
   {
     title: "Language",
-    icon: "Earth",
+    iconComponent: "EarthIcon",
     component: "MobileNavInnerList",
-    componentProps: { linkList: ProductLinksList }
+    showInner: true,
+    componentProps: { linkList: PRODUCT_LINKS_LIST }
   },
   {
     title: "Sign in",
     link: "#",
-    icon: "User"
+    iconComponent: "UserIcon"
   }
 ];
 
-export { MobileNavConfig };
+export { MOBILE_NAV_CONFIG };

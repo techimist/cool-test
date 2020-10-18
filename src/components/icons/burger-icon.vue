@@ -1,6 +1,7 @@
 <template>
-  <div class="block lg:hidden burger burger--active">
+  <div :class="[value ? 'burger--active' : '', 'block lg:hidden burger']">
     <button
+      @click="toggleDrawer"
       class="burger-button relative block h-12 px-3 bg-transparent rounded-none cursor-pointer transition-color duration-200"
     >
       <span class="block w-full h-full transform">
@@ -11,6 +12,18 @@
     </button>
   </div>
 </template>
+
+<script>
+export default {
+  name: "BurgerIcon",
+  props: ["value"],
+  methods: {
+    toggleDrawer() {
+      this.$emit("input", !this.value);
+    }
+  }
+};
+</script>
 
 <style lang="scss" scoped>
 .burger-button {

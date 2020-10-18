@@ -1,22 +1,84 @@
 <template>
   <div>
-    <component :is="cn" />
+    <burger-icon v-model="isOpen" />
+    <nav v-if="isOpen" class="fixed left-0 right-0 mt-2">
+      <div :class="showInner && 'inner-nav--active'">
+        <ul class="bg-gray-900">
+          <li
+            v-for="navObj in mobileNavConfig"
+            :key="navObj.title"
+            @click="selectInnerNav($event, navObj)"
+          >
+            <div class="flex justify-between">
+              <span>{{ navObj.title }}</span>
+              <span v-if="navObj.iconComponent">
+                <component :is="navObj.iconComponent" />
+              </span>
+            </div>
+          </li>
+        </ul>
+        <div class="inner-nav" v-if="{ showInner }">
+          <div @click="toggleInnerNav()">
+            <chevron-icon class="transform rotate-180" /> {{ selectedInnerNav.title }}
+          </div>
+          <component :is="selectedInnerNav.component" v-bind="selectedInnerNav.componentProps"/>
+        </div>
+      </div>
+    </nav>
   </div>
 </template>
 
 <script>
-import MobileNavInnerList from './mobile-nav-inner-list';
+/* eslint-disable vue/no-unused-components */
+import { MOBILE_NAV_CONFIG } from "../config";
+import MobileNavInnerList from "./mobile-nav-inner-list";
+import MobileNavSearch from './mobile-nav-search';
+import BurgerIcon from "../../icons/burger-icon";
+import SearchIcon from "../../icons/search-icon";
+import EarthIcon from "../../icons/earth-icon";
+import UserIcon from "../../icons/user-icon";
+import ChevronIcon from "../../icons/chevron-icon";
 
 export default {
-  name: 'MobileNav',
+  name: "MobileNav",
   components: {
-    // eslint-disable-next-line vue/no-unused-components
     MobileNavInnerList,
+    MobileNavSearch,
+    BurgerIcon,
+    SearchIcon,
+    EarthIcon,
+    UserIcon,
+    ChevronIcon
   },
   data() {
     return {
-      cn: 'MobileNavInnerList',
+      isOpen: false,
+      mobileNavConfig: MOBILE_NAV_CONFIG,
+      selectedInnerNav: {},
+      showInner: false
     };
   },
-}
+  methods: {
+    selectInnerNav(e, innerObj) {
+      if (innerObj.showInner) {
+        this.selectedInnerNav = innerObj;
+        this.toggleInnerNav(true);
+      }
+    },
+    toggleInnerNav(show) {
+      this.showInner = show ? show : !this.showInner
+    }
+  }
+};
 </script>
+
+<style lang="scss" scoped>
+.inner-nav {
+  @apply bg-gray-900 absolute top-0 w-full;
+  left: 100%;
+}
+
+.inner-nav--active {
+  transform: translateX(-100%);
+}
+</style>
