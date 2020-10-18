@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <ul class="flex">
+  <nav class="absolute w-full hidden lg:block right-0 left-0">
+    <ul class="flex justify-center">
       <li v-for="navObj in centerNav" :key="navObj.title" class="mx-7">
         <a v-if="!navObj.showInner" href="">{{ navObj.title }}</a>
         <div v-else>
