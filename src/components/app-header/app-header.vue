@@ -1,6 +1,6 @@
 <template>
   <header
-    class="font-display bg-gray-900 relative flex justify-between items-center h-17 lg:h-20 text-white"
+    class="font-display bg-gray-900 relative flex justify-between items-center h-17 lg:h-20 text-white px-2 lg:pl-10 lg:pr-5 font-bold uppercase"
   >
     <app-logo class="hidden lg:block" />
     <mobile-nav class="lg:hidden" />
@@ -17,8 +17,8 @@
 import AppLogo from "../app-logo";
 import CartIcon from "../icons/cart-icon";
 import MobileNav from "./mobile-nav";
-import DesktopNavMiddle from './desktop-nav/desktop-nav-middle';
-import DesktopNavIconNav from './desktop-nav/desktop-nav-icon-nav.vue';
+import DesktopNavMiddle from "./desktop-nav/desktop-nav-middle";
+import DesktopNavIconNav from "./desktop-nav/desktop-nav-icon-nav.vue";
 
 export default {
   name: "AppHeader",

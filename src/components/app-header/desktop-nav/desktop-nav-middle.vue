@@ -1,7 +1,7 @@
 <template>
   <nav>
     <ul class="flex">
-      <li v-for="navObj in centerNav" :key="navObj.title" class="mx-2">
+      <li v-for="navObj in centerNav" :key="navObj.title" class="mx-7">
         <a v-if="!navObj.showInner" href="">{{ navObj.title }}</a>
         <div v-else>
           <span @click="selectInnerNav($event, navObj.title)">{{ navObj.title }}</span>

@@ -1,14 +1,14 @@
 <template>
   <div>
     <ul class="flex">
-      <li v-for="navObj in iconNav" :key="navObj.title" class="mx-2">
-        <a v-if="!navObj.showInner" href="">
+      <li v-for="navObj in iconNav" :key="navObj.title" class="">
+        <a class="px-4 py-3 block" v-if="!navObj.showInner" href="">
           <component :is="navObj.iconComponent" />
         </a>
         <div v-else>
-          <span @click="selectInnerNav($event, navObj.iconComponent)">
+          <div class="px-4 py-3" @click="selectInnerNav($event, navObj.iconComponent)">
             <component :is="navObj.iconComponent" />
-          </span>
+          </div>
           <component
             :class="openedInnerNav === navObj.iconComponent ? '' : 'hidden'"
             :is="navObj.component"
