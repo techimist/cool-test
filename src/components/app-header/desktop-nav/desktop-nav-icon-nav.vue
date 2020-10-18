@@ -6,19 +6,16 @@
           <component :is="navObj.iconComponent" />
         </a>
         <div v-else>
-          <span @click="selectInnerNav($event, navObj.title)">
+          <span @click="selectInnerNav($event, navObj.iconComponent)">
             <component :is="navObj.iconComponent" />
           </span>
           <component
-            :class="openedInnerNav === navObj.title ? '' : 'hidden'"
+            :class="openedInnerNav === navObj.iconComponent ? '' : 'hidden'"
             :is="navObj.component"
             v-bind="navObj.componentProps"
           />
         </div>
       </li>
-      <!-- <li v-for="navObj in iconNav" :key="navObj.title" class="ml-5">
-        <component :is="navObj.iconComponent" />
-      </li> -->
     </ul>
   </div>
 </template>
@@ -30,6 +27,7 @@ import UserIcon from "../../icons/user-icon";
 import SearchIcon from "../../icons/search-icon";
 import CartIcon from "../../icons/cart-icon";
 import DesktopNavInnerList from "./desktop-nav-inner-list";
+import DesktopNavSearch from "./desktop-nav-search";
 
 export default {
   name: "DesktopNavIconNav",
@@ -38,7 +36,8 @@ export default {
     UserIcon,
     SearchIcon,
     CartIcon,
-    DesktopNavInnerList
+    DesktopNavInnerList,
+    DesktopNavSearch
   },
   data() {
     return {

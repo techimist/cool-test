@@ -106,19 +106,19 @@ const DESKTOP_NAV_CONFIG = {
       title: "Products",
       showInner: true,
       component: "DesktopNavInnerList",
-      componentProps: { linkList: PRODUCT_LINKS_LIST },
+      componentProps: { linkList: PRODUCT_LINKS_LIST }
     },
     {
       title: "News",
       showInner: true,
       component: "DesktopNavInnerList",
-      componentProps: { linkList: NEWS_LINKS_LIST },
+      componentProps: { linkList: NEWS_LINKS_LIST }
     },
     {
       title: "Learn",
       showInner: true,
       component: "DesktopNavInnerList",
-      componentProps: { linkList: LEARN_LINKS_LIST },
+      componentProps: { linkList: LEARN_LINKS_LIST }
     },
     {
       title: "Try",
@@ -133,13 +133,13 @@ const DESKTOP_NAV_CONFIG = {
     {
       iconComponent: "SearchIcon",
       showInner: true,
-      innerComponent: "DesktopNavSearch",
+      component: "DesktopNavSearch"
     },
     {
       iconComponent: "EarthIcon",
       showInner: true,
       component: "DesktopNavInnerList",
-      componentProps: { linkList: LANGUAGES },
+      componentProps: { linkList: LANGUAGES }
     },
     {
       iconComponent: "UserIcon",
