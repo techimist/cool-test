@@ -2,7 +2,7 @@
   <div>
     <burger-icon v-model="isOpen" />
     <nav v-if="isOpen" class="fixed left-0 right-0 mt-2">
-      <div :class="showInner && 'inner-nav--active'">
+      <div :class="['mobile-nav', showInner && 'inner-nav--active']">
         <ul class="bg-gray-700">
           <li
             v-for="navObj in mobileNavConfig"
@@ -83,6 +83,10 @@ export default {
 .inner-nav {
   @apply bg-gray-700 absolute top-0 w-full;
   left: 100%;
+}
+
+.mobile-nav {
+  transition: all 0.2s;
 }
 
 .inner-nav--active {
