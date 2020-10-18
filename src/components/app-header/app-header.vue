@@ -5,12 +5,11 @@
     <app-logo class="hidden lg:block" />
     <mobile-nav class="lg:hidden" />
 
-    <div class="hidden lg:block">middle container</div>
+    <desktop-nav-middle class="hidden lg:block" />
     <app-logo class="lg:hidden block" />
 
-    <div>
-      <cart-icon />
-    </div>
+    <desktop-nav-icon-nav class="hidden lg:block" />
+    <cart-icon class="lg:hidden block" />
   </header>
 </template>
 
@@ -18,6 +17,8 @@
 import AppLogo from "../app-logo";
 import CartIcon from "../icons/cart-icon";
 import MobileNav from "./mobile-nav";
+import DesktopNavMiddle from './desktop-nav/desktop-nav-middle';
+import DesktopNavIconNav from './desktop-nav/desktop-nav-icon-nav.vue';
 
 export default {
   name: "AppHeader",
@@ -25,6 +26,8 @@ export default {
     AppLogo,
     CartIcon,
     MobileNav,
+    DesktopNavMiddle,
+    DesktopNavIconNav
   }
 };
 </script>

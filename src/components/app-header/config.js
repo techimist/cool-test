@@ -39,12 +39,23 @@ const LEARN_LINKS_LIST = [
   }
 ];
 
+const LANGUAGES = [
+  {
+    title: "English",
+    link: "#"
+  },
+  {
+    title: "German",
+    link: "#"
+  }
+];
+
 const MOBILE_NAV_CONFIG = [
   {
     title: "Search",
     iconComponent: "SearchIcon",
     component: "MobileNavSearch",
-    showInner: true,
+    showInner: true
   },
   {
     title: "Products",
@@ -69,18 +80,18 @@ const MOBILE_NAV_CONFIG = [
   },
   {
     title: "Try",
-    link: "#",
+    link: "#"
   },
   {
     title: "Buy",
-    link: "#",
+    link: "#"
   },
   {
     title: "Language",
     iconComponent: "EarthIcon",
     component: "MobileNavInnerList",
     showInner: true,
-    componentProps: { linkList: PRODUCT_LINKS_LIST }
+    componentProps: { linkList: LANGUAGES }
   },
   {
     title: "Sign in",
@@ -89,4 +100,56 @@ const MOBILE_NAV_CONFIG = [
   }
 ];
 
-export { MOBILE_NAV_CONFIG };
+const DESKTOP_NAV_CONFIG = {
+  centerNav: [
+    {
+      title: "Products",
+      showInner: true,
+      component: "DesktopNavInnerList",
+      componentProps: { linkList: PRODUCT_LINKS_LIST },
+    },
+    {
+      title: "News",
+      showInner: true,
+      component: "DesktopNavInnerList",
+      componentProps: { linkList: NEWS_LINKS_LIST },
+    },
+    {
+      title: "Learn",
+      showInner: true,
+      component: "DesktopNavInnerList",
+      componentProps: { linkList: LEARN_LINKS_LIST },
+    },
+    {
+      title: "Try",
+      link: "#"
+    },
+    {
+      title: "Buy",
+      link: "#"
+    }
+  ],
+  iconNav: [
+    {
+      iconComponent: "SearchIcon",
+      showInner: true,
+      innerComponent: "DesktopNavSearch",
+    },
+    {
+      iconComponent: "EarthIcon",
+      showInner: true,
+      component: "DesktopNavInnerList",
+      componentProps: { linkList: LANGUAGES },
+    },
+    {
+      iconComponent: "UserIcon",
+      link: "#"
+    },
+    {
+      iconComponent: "CartIcon",
+      link: "#"
+    }
+  ]
+};
+
+export { MOBILE_NAV_CONFIG, DESKTOP_NAV_CONFIG };
