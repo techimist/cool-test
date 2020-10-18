@@ -3,7 +3,7 @@
     class="font-display bg-gray-900 relative flex justify-between items-center h-17 lg:h-20 text-white pr-3 pl-1 lg:pl-10 lg:pr-5 lg:font-bold uppercase"
   >
     <app-logo class="hidden lg:block" />
-    <mobile-nav class="lg:hidden" />
+    <mobile-nav class="lg:hidden z-10" />
 
     <desktop-nav-middle class="hidden lg:block" />
     <div
