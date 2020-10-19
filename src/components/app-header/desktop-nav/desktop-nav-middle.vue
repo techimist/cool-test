@@ -10,7 +10,6 @@
           <button
             class="font-bold uppercase"
             @click="selectInnerNav($event, navObj.title)"
-            @focus="selectInnerNav($event, navObj.title)"
           >
             {{ navObj.title }}
           </button>

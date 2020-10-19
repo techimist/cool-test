@@ -14,7 +14,6 @@
           <button
             class="px-4 py-3"
             @click="selectInnerNav($event, navObj.iconComponent)"
-            @focus="selectInnerNav($event, navObj.iconComponent)"
             :aria-label="navObj.title"
           >
             <component :is="navObj.iconComponent" />

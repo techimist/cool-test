@@ -22,7 +22,7 @@
     <div
       @click="selectInnerNav($event, '')"
       :class="[
-        'search-overlay fixed h-full w-full top-0 left-0 right-0 bg-black transition duration-200 ease-in',
+        'search-overlay fixed h-full w-full top-0 left-0 right-0 bg-black',
         isActive && 'active'
       ]"
     />
@@ -47,10 +47,14 @@ export default {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: -1;
   opacity: 0;
+  transform: scaleX(0);
+  transition: opacity 0.2s ease-in;
+  /* transition: transform 0s; */
 
   &.active {
     opacity: 1;
     z-index: 0;
+    transform: scaleX(1);
   }
 }
 
