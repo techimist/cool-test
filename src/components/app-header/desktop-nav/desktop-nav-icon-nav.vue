@@ -5,12 +5,15 @@
         <a class="px-4 py-3 block" v-if="!navObj.showInner" href="">
           <component :is="navObj.iconComponent" />
         </a>
-        <div v-else>
-          <div class="px-4 py-3" @click="selectInnerNav($event, navObj.iconComponent)">
+        <div v-else class="relative">
+          <div
+            class="px-4 py-3"
+            @click="selectInnerNav($event, navObj.iconComponent)"
+          >
             <component :is="navObj.iconComponent" />
           </div>
           <component
-            :class="openedInnerNav === navObj.iconComponent ? '' : 'hidden'"
+            :is-active="openedInnerNav === navObj.iconComponent"
             :is="navObj.component"
             v-bind="navObj.componentProps"
           />
@@ -39,17 +42,11 @@ export default {
     DesktopNavInnerList,
     DesktopNavSearch
   },
+  props: ["openedInnerNav", "selectInnerNav"],
   data() {
     return {
-      iconNav: DESKTOP_NAV_CONFIG.iconNav,
-      openedInnerNav: ""
+      iconNav: DESKTOP_NAV_CONFIG.iconNav
     };
-  },
-  methods: {
-    selectInnerNav(_, title) {
-      console.log(title);
-      this.openedInnerNav = title;
-    }
   }
 };
 </script>

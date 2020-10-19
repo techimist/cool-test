@@ -5,15 +5,24 @@
     <app-logo class="hidden lg:block" />
     <mobile-nav class="lg:hidden z-10" />
 
-    <desktop-nav-middle class="hidden lg:block" />
+    <desktop-nav-middle
+      class="hidden lg:block"
+      :opened-inner-nav="openedInnerNav"
+      :select-inner-nav="selectInnerNav"
+    />
     <div
       class="lg:hidden block absolute w-full flex left-0 right-0 justify-center"
     >
       <app-logo />
     </div>
 
-    <desktop-nav-icon-nav class="hidden lg:block" />
+    <desktop-nav-icon-nav
+      class="hidden lg:block z-10"
+      :opened-inner-nav="openedInnerNav"
+      :select-inner-nav="selectInnerNav"
+    />
     <cart-icon class="lg:hidden block" />
+    <!-- <div class="" /> -->
   </header>
 </template>
 
@@ -32,6 +41,28 @@ export default {
     MobileNav,
     DesktopNavMiddle,
     DesktopNavIconNav
+  },
+  data() {
+    return {
+      openedInnerNav: ""
+    };
+  },
+  created() {
+    const unSetInner = e => {
+      this.selectInnerNav(e, "");
+    };
+
+    document.addEventListener("click", unSetInner);
+
+    this.$once("hook:beforeDestroy", () => {
+      document.removeEventListener("click", unSetInner);
+    });
+  },
+  methods: {
+    selectInnerNav(e, title) {
+      e.stopPropagation();
+      this.openedInnerNav = title === this.openedInnerNav ? "" : title;
+    }
   }
 };
 </script>
