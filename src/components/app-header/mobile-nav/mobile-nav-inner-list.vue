@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'MobileNavInnerList',
-  props: ['linkList']
-}
+  name: "MobileNavInnerList",
+  props: ["linkList"]
+};
 </script>
