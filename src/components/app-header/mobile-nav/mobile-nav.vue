@@ -1,8 +1,18 @@
 <template>
   <div>
     <burger-icon v-model="isOpen" />
-    <nav v-if="isOpen" class="fixed left-0 right-0 mt-2">
-      <div :class="['mobile-nav', showInner && 'inner-nav--active']">
+    <nav
+      :class="[
+        'mobile-nav-cont transition transition-all duration-100 .ease-in-out fixed left-0 right-0 mt-2',
+        isOpen && 'open'
+      ]"
+    >
+      <div
+        :class="[
+          'relative z-10 mobile-nav',
+          selectedInnerNav.title && 'inner-nav--active'
+        ]"
+      >
         <ul class="bg-gray-700">
           <li
             v-for="navObj in mobileNavConfig"
@@ -17,9 +27,9 @@
             </div>
           </li>
         </ul>
-        <div v-if="{ showInner }" class="bg-gray-700 inner-nav">
+        <div v-show="selectedInnerNav.title" class="bg-gray-700 inner-nav">
           <div
-            @click="toggleInnerNav()"
+            @click="selectInnerNav($event, {})"
             class="flex p-3 border-t border-gray-600"
           >
             <chevron-icon class="transform rotate-180" />
@@ -32,6 +42,13 @@
         </div>
       </div>
     </nav>
+    <div
+      @click="closeNav"
+      :class="[
+        'fixed top-0 left-0 right-0 h-full nav-overlay transition transition-all duration-100 .ease-in-out',
+        isOpen && 'open'
+      ]"
+    />
   </div>
 </template>
 
@@ -61,25 +78,51 @@ export default {
     return {
       isOpen: false,
       mobileNavConfig: MOBILE_NAV_CONFIG,
-      selectedInnerNav: {},
-      showInner: false
+      selectedInnerNav: {}
     };
   },
-  methods: {
-    selectInnerNav(e, innerObj) {
-      if (innerObj.showInner) {
-        this.selectedInnerNav = innerObj;
-        this.toggleInnerNav(true);
+  watch: {
+    isOpen: {
+      immediate: true,
+      handler(newVal) {
+        if (newVal === true) {
+          this.selectedInnerNav = {};
+        }
       }
+    }
+  },
+  methods: {
+    closeNav() {
+      this.isOpen = false;
     },
-    toggleInnerNav(show) {
-      this.showInner = show ? show : !this.showInner;
+    selectInnerNav(e, innerObj) {
+      this.selectedInnerNav = innerObj;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.nav-overlay {
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 4.25rem;
+  opacity: 0;
+
+  &.open {
+    opacity: 1;
+  }
+}
+
+.mobile-nav-cont {
+  transform: translateX(-100%);
+  opacity: 0;
+
+  &.open {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 .inner-nav {
   @apply bg-gray-700 absolute top-0 w-full;
   left: 100%;

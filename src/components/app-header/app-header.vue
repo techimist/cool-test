@@ -1,6 +1,6 @@
 <template>
   <header
-    class="font-display bg-gray-900 relative flex justify-between items-center h-17 lg:h-20 text-white pr-3 pl-1 lg:pl-10 lg:pr-5 lg:font-bold uppercase"
+    class="font-display bg-gray-900 relative z-10 flex justify-between items-center h-17 lg:h-20 text-white pr-3 pl-1 lg:pl-10 lg:pr-5 lg:font-bold uppercase"
   >
     <app-logo class="hidden lg:block" />
     <mobile-nav class="lg:hidden z-10" />
