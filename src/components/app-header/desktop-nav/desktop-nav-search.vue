@@ -6,7 +6,7 @@
         isActive && 'active'
       ]"
     >
-      <div class="w-3/6 relative">
+      <div class="w-3/6 relative" @click="prevenClose">
         <label :id="_uid" class="hidden">Search</label>
         <input
           :aria-labelledBy="_uid"
@@ -20,7 +20,6 @@
       </div>
     </div>
     <div
-      @click="selectInnerNav($event, '')"
       :class="[
         'search-overlay fixed h-full w-full top-0 left-0 right-0 bg-black',
         isActive && 'active'
@@ -37,6 +36,11 @@ export default {
   props: ["isActive", "selectInnerNav"],
   components: {
     SearchIcon
+  },
+  methods: {
+    prevenClose(e) {
+      e.stopPropagation();
+    }
   }
 };
 </script>
