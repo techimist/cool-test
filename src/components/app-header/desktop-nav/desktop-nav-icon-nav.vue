@@ -16,6 +16,7 @@
             :is-active="openedInnerNav === navObj.iconComponent"
             :is="navObj.component"
             v-bind="navObj.componentProps"
+            :select-inner-nav="selectInnerNav"
           />
         </div>
       </li>
