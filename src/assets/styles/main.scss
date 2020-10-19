@@ -13,3 +13,7 @@
 .top-half {
   top: 50%;
 }
+
+a:focus, button:focus, input:focus {
+  outline-color: hsla(208, 80%, 37%, 1);
+}
