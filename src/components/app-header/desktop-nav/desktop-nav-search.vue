@@ -7,7 +7,9 @@
       ]"
     >
       <div class="w-3/6 relative">
+        <label :id="_uid" class="hidden">Search</label>
         <input
+          :aria-labelledBy="_uid"
           type="text"
           class="w-full h-12 rounded-full px-5 text-black"
           placeholder="Search"

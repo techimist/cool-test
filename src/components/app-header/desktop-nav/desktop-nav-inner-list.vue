@@ -12,13 +12,15 @@
         isActive && 'is-active'
       ]"
     >
-      <li
-        :tabindex="isActive ? 0 : -1"
-        v-for="navObj in linkList"
-        :key="navObj.title"
-        class="py-1 px-3 hover:bg-gray-300"
-      >
-        {{ navObj.title }}
+      <li v-for="navObj in linkList" :key="navObj.title">
+        <a
+          :href="navObj.link"
+          class="block py-1 px-3 hover:bg-gray-300"
+          :tabindex="isActive ? 0 : -1"
+          :aria-label="navObj.title"
+        >
+          {{ navObj.title }}
+        </a>
       </li>
     </ul>
   </div>
@@ -58,7 +60,6 @@ export default {
   &.is-active {
     opacity: 1;
     transform: translateY(0);
-    /* z-index: 0; */
   }
 }
 </style>

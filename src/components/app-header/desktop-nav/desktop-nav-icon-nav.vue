@@ -2,7 +2,12 @@
   <div>
     <ul class="flex">
       <li v-for="navObj in iconNav" :key="navObj.title" class="">
-        <a class="px-4 py-3 block" v-if="!navObj.showInner" href="">
+        <a
+          class="px-4 py-3 block"
+          v-if="!navObj.showInner"
+          :href="navObj.link"
+          :aria-label="navObj.title"
+        >
           <component :is="navObj.iconComponent" />
         </a>
         <div v-else class="relative">
@@ -10,6 +15,7 @@
             class="px-4 py-3"
             @click="selectInnerNav($event, navObj.iconComponent)"
             @focus="selectInnerNav($event, navObj.iconComponent)"
+            :aria-label="navObj.title"
           >
             <component :is="navObj.iconComponent" />
           </button>

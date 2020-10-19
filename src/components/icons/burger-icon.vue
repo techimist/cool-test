@@ -1,5 +1,8 @@
 <template>
-  <div :class="[value ? 'burger--active' : '', 'block lg:hidden burger']">
+  <div
+    aria-hidden="true"
+    :class="[value ? 'burger--active' : '', 'block lg:hidden burger']"
+  >
     <button
       @click="toggleDrawer"
       class="burger-button relative block h-12 px-3 bg-transparent rounded-none cursor-pointer transition-color duration-200"

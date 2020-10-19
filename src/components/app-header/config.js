@@ -131,21 +131,25 @@ const DESKTOP_NAV_CONFIG = {
   ],
   iconNav: [
     {
+      title: "Search",
       iconComponent: "SearchIcon",
       showInner: true,
       component: "DesktopNavSearch"
     },
     {
+      title: "Web",
       iconComponent: "EarthIcon",
       showInner: true,
       component: "DesktopNavInnerList",
       componentProps: { linkList: LANGUAGES }
     },
     {
+      title: "Login",
       iconComponent: "UserIcon",
       link: "#"
     },
     {
+      title: "Go to Cart",
       iconComponent: "CartIcon",
       link: "#"
     }
