@@ -13,6 +13,7 @@
       ]"
     >
       <li
+        :tabindex="isActive ? 0 : -1"
         v-for="navObj in linkList"
         :key="navObj.title"
         class="py-1 px-3 hover:bg-gray-300"

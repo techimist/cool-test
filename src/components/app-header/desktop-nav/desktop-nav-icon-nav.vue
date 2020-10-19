@@ -6,12 +6,13 @@
           <component :is="navObj.iconComponent" />
         </a>
         <div v-else class="relative">
-          <div
+          <button
             class="px-4 py-3"
             @click="selectInnerNav($event, navObj.iconComponent)"
+            @focus="selectInnerNav($event, navObj.iconComponent)"
           >
             <component :is="navObj.iconComponent" />
-          </div>
+          </button>
           <component
             :is-active="openedInnerNav === navObj.iconComponent"
             :is="navObj.component"

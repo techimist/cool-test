@@ -7,9 +7,13 @@
       <li v-for="navObj in centerNav" :key="navObj.title" class="mx-7 relative">
         <a v-if="!navObj.showInner" href="">{{ navObj.title }}</a>
         <div v-else>
-          <span @click="selectInnerNav($event, navObj.title)">{{
-            navObj.title
-          }}</span>
+          <button
+            class="font-bold uppercase"
+            @click="selectInnerNav($event, navObj.title)"
+            @focus="selectInnerNav($event, navObj.title)"
+          >
+            {{ navObj.title }}
+          </button>
           <component
             :is-active="openedInnerNav === navObj.title"
             :is="navObj.component"
